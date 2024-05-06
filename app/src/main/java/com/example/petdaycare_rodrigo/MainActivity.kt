@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         getPetCollection()
-
         listItem = findViewById(R.id.PetsLV)
 
         listItem.setOnItemClickListener{ parent, view, position, id ->
