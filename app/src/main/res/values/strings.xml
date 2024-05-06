@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">PetDayCare_Rodrigo</string>
+    <string-array name="breeds_array">
+        <item>Selecciona una Opción</item>
+        <item>Beagle</item>
+        <item>Bedlington</item>
+        <item>Bichón Frisé</item>
+        <item>Bodeguero Andaluz</item>
+        <item>Border Collie</item>
+        <item>Borzoi</item>
+        <item>Bulldog Francés</item>
+        <item>Bulldog Inglés</item>
+        <item>Chihuahua</item>
+        <item>Chow chow</item>
+        <item>Corgi</item>
+        <item>Galgo</item>
+        <item>Golden Retriever</item>
+        <item>Gran Danés</item>
+        <item>Husky</item>
+        <item>Mastín</item>
+        <item>Mastín Italiano</item>
+        <item>Pastor Alemán</item>
+        <item>Perro de Aguas</item>
+        <item>Perro Salchicha</item>
+        <item>Pinscher</item>
+        <item>Pitbull</item>
+        <item>Pomeranian</item>
+        <item>Rottweiler</item>
+        <item>Sabueso Español</item>
+        <item>San Bernardo</item>
+        <item>Shiba Inu</item>
+        <item>West Terrier</item>
+        <item>Yorkshire</item>
+        <item>Otra...</item>
+    </string-array>
+
+
+    <string-array name="genres_array">
+        <item>Selecciona una Opción</item>
+        <item>Hembra</item>
+        <item>Macho</item>
+    </string-array>
+</resources>

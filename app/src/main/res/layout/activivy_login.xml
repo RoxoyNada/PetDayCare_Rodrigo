@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/BackgroundIV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loginbg" />
+
+    <RelativeLayout
+        android:id="@+id/LoginRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="4dp"
+        android:background="#DDFCFD"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/UserTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LoginTV"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toStartOf="@id/UserET"
+            android:padding="10dp"
+            android:text="Usuario: "
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/UserAlertTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PassET"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="#DDFCFD"
+            android:padding="7dp"
+            android:text="- Introduzca un correo válido"
+            android:textColor="#D50000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/PassTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/UserTV"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            android:padding="10dp"
+            android:text="Contraseña: "
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/PassAlertTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/UserAlertTV"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="#DDFCFD"
+            android:padding="7dp"
+            android:text="- La contraseña debe tener al menos: \n ●     6 Caracteres \n ●     1 Letra Minúscula \n ●     1 Letra Mayúscula \n ●     1 Dígito&quot;"
+            android:textAlignment="viewStart"
+            android:textColor="#D50000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/LoginTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="false"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            android:padding="10dp"
+            android:text="Login: "
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/UserET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LoginTV"
+            android:layout_alignParentEnd="false"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@id/PassTV"
+            android:background="@drawable/login_box_style"
+            android:ems="10"
+            android:hint="E-Mail"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/PassET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/UserET"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toEndOf="@id/PassTV"
+            android:background="@drawable/login_box_style"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ButtonsLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LoginRL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/LoginBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="50"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/RegisterBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="50"
+            android:text="Register" />
+    </LinearLayout>
+
+</RelativeLayout>

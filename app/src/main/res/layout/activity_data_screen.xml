@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarSize="10dp">
+
+
+    <TextView
+        android:id="@+id/NameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="Nombre"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/BreedTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WeightET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="Raza"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/GeneroTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WeightET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@id/BreedSP"
+        android:text="Género"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/ShowAgeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NameET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="Edad"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/WeigthTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AgeET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="Peso"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/NameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@id/NameTV"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/AgeET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NameET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@id/NameTV"
+        android:ems="10"
+        android:hint="Edad"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/WeightET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AgeET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@id/NameTV"
+        android:ems="10"
+        android:hint="Peso"
+        android:inputType="numberDecimal" />
+
+    <Spinner
+        android:id="@+id/BreedSP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WeightET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@id/BreedTV"
+        android:scrollbarSize="15dp" />
+
+    <Spinner
+        android:id="@+id/GenreSP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WeightET"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@id/GeneroTV"
+        android:scrollbarSize="15dp" />
+
+    <Button
+        android:id="@+id/addPetBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GenreSP"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:padding="10dp"
+        android:text="Añadir" />
+</RelativeLayout>

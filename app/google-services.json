@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "307103910246",
+    "project_id": "petdaycare-b1f70",
+    "storage_bucket": "petdaycare-b1f70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307103910246:android:a0d765451e7c9bce4d20a7",
+        "android_client_info": {
+          "package_name": "com.example.petdaycare_rodrigo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQJ2_PnPJpQe2Aatfk-n31Qav2iKTssm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
