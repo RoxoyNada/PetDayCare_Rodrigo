@@ -12,19 +12,37 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 
 class MainActivity : AppCompatActivity() {
     var petsArray = arrayListOf<Mascota>()
+    lateinit var listItem: ListView
 
-    override fun onResume() {
-        super.onResume()
-        getPetCollection()
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        getPetCollection()
+
+        listItem = findViewById(R.id.PetsLV)
+
+        listItem.setOnItemClickListener{ parent, view, position, id ->
+
+            val selectedPet = parent.getItemAtPosition(position) as Mascota
+
+            val i = Intent(this, modify_pet::class.java)
+
+            i.putExtra("Mascota", selectedPet)
+
+            startActivity(i)
+        }
+
 
         var floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
         floatBTN.setOnClickListener{
@@ -32,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
             petsArray.clear()
         }
+
     }
 
     fun getPetCollection(){
@@ -112,6 +131,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logOut -> {
+                Firebase.auth.signOut()
                 val i = Intent(applicationContext,Login::class.java)
                 startActivity(i)
             }

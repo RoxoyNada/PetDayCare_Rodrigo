@@ -24,6 +24,10 @@ class DataScreen : AppCompatActivity() {
     lateinit var selectedGenre : String
     var breedImgID = 0
 
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_screen)
