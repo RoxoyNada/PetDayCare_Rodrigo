@@ -126,7 +126,9 @@
             android:inputType="text"
             android:padding="12dp"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:maxLength="60"
+            />
 
         <EditText
             android:id="@+id/PassET"
@@ -144,7 +146,9 @@
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:maxLength="40"
+            />
     </RelativeLayout>
 
     <LinearLayout

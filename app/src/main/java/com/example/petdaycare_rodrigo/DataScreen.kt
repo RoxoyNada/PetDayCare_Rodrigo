@@ -22,6 +22,7 @@ class DataScreen : AppCompatActivity() {
     lateinit var genreSP : Spinner
     lateinit var selectedBreed : String
     lateinit var selectedGenre : String
+    private var lastToast: Toast? = null
     var breedImgID = 0
 
     @SuppressLint("MissingSuperCall")
@@ -84,10 +85,14 @@ class DataScreen : AppCompatActivity() {
                     if(checkFields(ageINT,weightDouble,selectedBreed,selectedGenre)){
                         createPet(nameSTR,ageINT,selectedBreed,selectedGenre,weightDouble)
                     }else{
-                        Toast.makeText(this, "Algun dato es invalido, por favor revise los campos", Toast.LENGTH_SHORT).show()
+                        lastToast?.cancel()
+                        lastToast=Toast.makeText(this, "Algun dato es invalido, por favor revise los campos", Toast.LENGTH_SHORT)
+                        lastToast?.show()
                     }
             }else{
-                Toast.makeText(this, "Campos no cumplimentados, por favor rellene todos los campos", Toast.LENGTH_SHORT).show()
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Campos no cumplimentados, por favor rellene todos los campos", Toast.LENGTH_SHORT)
+                lastToast?.show()
             }
 
 
@@ -106,11 +111,15 @@ class DataScreen : AppCompatActivity() {
         }else{
 
             if(genre.equals("Selecciona una Opción",true)){
-                Toast.makeText(applicationContext, "Selecciona un género", Toast.LENGTH_SHORT).show()
+                lastToast?.cancel()
+                lastToast=Toast.makeText(applicationContext, "Selecciona un género", Toast.LENGTH_SHORT)
+                lastToast?.show()
                 dataOk = false
             }
             if (breedImgID == 0){
-                Toast.makeText(applicationContext, "Selecciona una raza", Toast.LENGTH_SHORT).show()
+                lastToast?.cancel()
+                lastToast=Toast.makeText(applicationContext, "Selecciona una raza", Toast.LENGTH_SHORT)
+                lastToast?.show()
                 dataOk = false
             }
         }
@@ -145,12 +154,15 @@ class DataScreen : AppCompatActivity() {
         db.collection("Mascotas")
             .add(mascota)
             .addOnSuccessListener { documentReference ->
-                Toast.makeText(this, "Mascota creada con éxito ", Toast.LENGTH_SHORT).show()
-
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Mascota creada con éxito ", Toast.LENGTH_SHORT)
+                lastToast?.show()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Ha ocurrido un error $e \n Intentelo más tarde", Toast.LENGTH_SHORT).show()
-                print(e)
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Ha ocurrido un error $e \n Intentelo más tarde", Toast.LENGTH_SHORT)
+                lastToast?.show()
+
             }
     }
 }

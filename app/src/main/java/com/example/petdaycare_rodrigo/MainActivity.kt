@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
             val selectedPet = parent.getItemAtPosition(position) as Mascota
 
-            val i = Intent(this, modify_pet::class.java)
+            val i = Intent(this, ModifyPet::class.java)
 
             i.putExtra("Mascota", selectedPet)
 

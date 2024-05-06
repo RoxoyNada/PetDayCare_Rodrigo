@@ -20,6 +20,7 @@ class Login : AppCompatActivity() {
     lateinit var alertMailTV : TextView
     lateinit var mailET : EditText
     lateinit var passET : EditText
+    private var lastToast: Toast? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activivy_login)
@@ -51,7 +52,9 @@ class Login : AppCompatActivity() {
                 .createUserWithEmailAndPassword(mailSTR,passSTR).addOnCompleteListener{
 
                     if(it.isSuccessful){
-                        Toast.makeText(this,"Usuario registrado con éxito",Toast.LENGTH_SHORT).show()
+                        lastToast?.cancel()
+                        lastToast=Toast.makeText(this,"Usuario registrado con éxito",Toast.LENGTH_SHORT)
+                        lastToast?.show()
                     }else{
                         var builder = AlertDialog.Builder(this)
                         builder.setTitle("Error Inesperado")
@@ -79,8 +82,9 @@ class Login : AppCompatActivity() {
                         val i = Intent(applicationContext, MainActivity::class.java)
                         startActivity(i)
                     } else {
-                        Toast.makeText(this, "Usuario o Contraseña incorrectos \n por favor revise los campos correspondientes", Toast.LENGTH_LONG)
-                            .show()
+                        lastToast?.cancel()
+                        lastToast=Toast.makeText(this, "Usuario o Contraseña incorrectos \n por favor revise los campos correspondientes", Toast.LENGTH_LONG)
+                        lastToast?.show()
                     }
                 }
 

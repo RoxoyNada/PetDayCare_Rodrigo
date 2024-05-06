@@ -71,7 +71,9 @@
         android:layout_toEndOf="@id/NameTV2"
         android:ems="10"
         android:hint="Nombre"
-        android:inputType="text" />
+        android:inputType="text"
+        android:maxLength="30"
+        />
 
     <EditText
         android:id="@+id/AgeET2"
@@ -84,7 +86,9 @@
         android:layout_toEndOf="@id/NameTV2"
         android:ems="10"
         android:hint="Edad"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="2"
+        />
 
     <EditText
         android:id="@+id/WeightET2"
@@ -97,7 +101,9 @@
         android:layout_toEndOf="@id/NameTV2"
         android:ems="10"
         android:hint="Peso"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:maxLength="4"
+        />
 
     <Spinner
         android:id="@+id/BreedSP2"
