@@ -1,73 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/padreRL"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
+    android:layout_marginStart="5dp"
     android:layout_marginTop="5dp"
-    android:layout_marginEnd="4dp"
-    android:padding="5dp"
-    tools:context=".AdapterListView">
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/rounded_corners_list_items">
 
     <TextView
-        android:id="@+id/ShowNameTV_OLD"
+        android:id="@+id/ShowNameTV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/PetIconIV_OLD"
+        android:layout_toEndOf="@id/PetIconIV"
         android:padding="5dp"
-        android:text="Name: " />
+        android:text="Nombre: "
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/GetNameTV_OLD"
+        android:id="@+id/GetNameTV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/ShowNameTV_OLD"
+        android:layout_toEndOf="@id/ShowNameTV2"
+        android:ellipsize="end"
         android:hint="Insert Name"
+        android:maxLines="1"
         android:padding="5dp"
-        android:textSize="14sp" />
+        android:singleLine="true"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/GetBreedTV_OLD"
+        android:id="@+id/GetBreedTV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/GetNameTV_OLD"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/GetNameTV2"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/ShowBreedTV_OLD"
+        android:layout_toEndOf="@id/ShowBreedTV"
+        android:ellipsize="end"
         android:hint="Insert Breed"
+        android:maxLines="1"
         android:padding="5dp"
-        android:textSize="14sp" />
+        android:singleLine="true"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/ShowBreedTV_OLD"
+        android:id="@+id/ShowBreedTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ShowNameTV_OLD"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="7dp"
+        android:layout_below="@id/ShowNameTV2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/PetIconIV_OLD"
+        android:layout_toEndOf="@id/PetIconIV"
         android:padding="5dp"
-        android:text="Breed: " />
+        android:text="Raza: "
+        android:textSize="18sp" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/PetIconIV_OLD"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/PetIconIV"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -76,38 +81,10 @@
         android:scaleType="centerCrop"
         android:src="@drawable/default_pet_icon"
         app:shapeAppearanceOverlay="@style/circular"
-        app:strokeColor="#1D3701"
-        app:strokeWidth="2dp" />
+        android:background="#7393D5"
+        app:strokeColor="#000000"
+        app:strokeWidth="3dp"
+    />
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/GetNameTV_OLD"
-        android:src="@drawable/genero" />
-
-
-    <View
-        android:id="@+id/divider_OLD"
-        android:layout_width="2dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="false"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:background="?android:attr/listDivider" />
-
-    <View
-        android:id="@+id/divider2_OLD"
-        android:layout_width="2dp"
-        android:layout_height="100dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="false"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:background="?android:attr/listDivider" />
 
 </RelativeLayout>

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        var floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
+        val floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
         floatBTN.setOnClickListener{
             val i = Intent(applicationContext, DataScreen::class.java)
             startActivity(i)
@@ -110,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                 listPetsView.emptyView = emptyTV
 
 
-                var petList = AdapterMascotas(applicationContext, R.layout.activity_adapter_list_view, petsArray)
+                val petList = AdapterMascotas(applicationContext, R.layout.activity_adapter_list_view, petsArray)
                 listPetsView.adapter = petList
             }
             .addOnFailureListener { exception ->
@@ -138,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                 composeEmail("rfernandez@centronelson.org")
             }
             R.id.aboutMe -> {
-                openWebPage("https://www.linkedin.com/in/rodrigo-fernandez-alonso/")
+                openWebPage("https://www.linkedin.com/in/rodrigo-fernandez-alonso-52b45b293/")
             }
         }
         return super.onOptionsItemSelected(item)

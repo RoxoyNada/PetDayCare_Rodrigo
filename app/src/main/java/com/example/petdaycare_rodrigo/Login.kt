@@ -2,7 +2,6 @@ package com.example.petdaycare_rodrigo
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,8 +10,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 
 class Login : AppCompatActivity() {
@@ -56,16 +53,15 @@ class Login : AppCompatActivity() {
                         lastToast=Toast.makeText(this,"Usuario registrado con éxito",Toast.LENGTH_SHORT)
                         lastToast?.show()
                     }else{
-                        var builder = AlertDialog.Builder(this)
+                        val builder = AlertDialog.Builder(this)
                         builder.setTitle("Error Inesperado")
                         builder.setMessage("Se ha producido un error, por favor intentelo de nuevo más tarde")
                         builder.setPositiveButton("Aceptar",null)
                         builder.setIcon(this.getDrawable(R.drawable.error_icon))
-                        var dialog = builder.create()
+                        val dialog = builder.create()
                         dialog.show()
                     }
                 }
-
         }
     }
 
@@ -91,42 +87,72 @@ class Login : AppCompatActivity() {
         }
     }
 
-
-
-
+    private fun isNullBlanckText(text: String):Boolean{
+        var noNull = false
+        if(text.isBlank() || text.isNullOrEmpty()){
+            noNull = true
+        }
+        return noNull
+    }
 
     fun checkRequiredFields(mail:String, pass:String):Boolean{
         var dataOk = false
 
         mailET.setHintTextColor(Color.GRAY)
         passET.setHintTextColor(Color.GRAY)
-        if ((mail.isNullOrEmpty() || mail.isBlank()) && (!pass.isNullOrEmpty() || !pass.isBlank())){
-            Toast.makeText(this,"Cumplimente el campo de E-mail correctamente",Toast.LENGTH_SHORT).show()
+        if (isNullBlanckText(mail) && (!isNullBlanckText(pass))){
             alertMailTV.visibility = View.VISIBLE
-            mailET.setHintTextColor(Color.RED)
-        }else if ((pass.isNullOrEmpty() || pass.isBlank()) && (!mail.isNullOrEmpty() || !mail.isBlank())){
-            Toast.makeText(this,"Cumplimente el campo de contraseña correctamente",Toast.LENGTH_SHORT).show()
-            passET.setHintTextColor(Color.RED)
-            alertPassTV.visibility = View.VISIBLE
-        }else if ((mail.isNullOrEmpty() || mail.isBlank()) && (pass.isNullOrEmpty() || pass.isBlank())){
-            Toast.makeText(this,"Cumplimente los campos de E-mail y contraseña correctamente",Toast.LENGTH_SHORT).show()
-            alertPassTV.visibility = View.VISIBLE
-            alertMailTV.visibility = View.VISIBLE
-            mailET.setHintTextColor(Color.RED)
-            passET.setHintTextColor(Color.RED)
-        }else if (!isValidEmail(mail)){
-            Toast.makeText(this,"Cumplimente el campo de E-mail con un correo electrónico válido ",Toast.LENGTH_SHORT).show()
-            alertMailTV.visibility = View.VISIBLE
-            mailET.setTextColor(Color.RED)
-        }else if (!isValidPassword(pass)){
-            Toast.makeText(this,"Cumplimente el contraseña con una contraseña válida ",Toast.LENGTH_SHORT).show()
-            alertPassTV.visibility = View.VISIBLE
-        } else{
-            dataOk = true
             alertPassTV.visibility = View.GONE
+            mailET.setHintTextColor(Color.RED)
+        }else if ( !isNullBlanckText(mail) && (isNullBlanckText(pass))){
+            passET.setHintTextColor(Color.RED)
+            mailET.setHintTextColor(Color.GRAY)
             alertMailTV.visibility = View.GONE
-            mailET.setTextColor(Color.BLACK)
+            alertPassTV.visibility = View.VISIBLE
+        }else if (isNullBlanckText(mail) && (isNullBlanckText(pass))){
+            alertMailTV.visibility = View.VISIBLE
+            alertPassTV.visibility = View.VISIBLE
+            mailET.setHintTextColor(Color.RED)
+            passET.setHintTextColor(Color.RED)
+        }else{
+            passET.setHintTextColor(Color.GRAY)
+            mailET.setHintTextColor(Color.GRAY)
+            alertMailTV.visibility = View.GONE
+            alertPassTV.visibility = View.GONE
+
+            if (!isValidEmail(mail) && isValidPassword(pass)){
+                alertPassTV.visibility = View.GONE
+                alertMailTV.visibility = View.VISIBLE
+                mailET.setTextColor(Color.RED)
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "E-Mail no válido, por favor introduzca un E-mail válido", Toast.LENGTH_LONG)
+                lastToast?.show()
+            }else if (!isValidPassword(pass) && isValidEmail(mail)){
+                alertPassTV.visibility = View.VISIBLE
+                alertMailTV.visibility = View.GONE
+                mailET.setTextColor(Color.BLACK)
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Contraseña no válida, por favor introduzca una contraseña válida", Toast.LENGTH_LONG)
+                lastToast?.show()
+            }else if (!isValidPassword(pass) && !isValidEmail(mail)) {
+                alertPassTV.visibility = View.VISIBLE
+                alertMailTV.visibility = View.VISIBLE
+                mailET.setTextColor(Color.BLACK)
+                lastToast?.cancel()
+                lastToast = Toast.makeText(
+                    this,
+                    "E-Mail y contraseña no válidos, por favor introduzca un E-mail y contraseña válidos",
+                    Toast.LENGTH_LONG
+                )
+                lastToast?.show()
+            }else{
+                alertPassTV.visibility = View.GONE
+                alertMailTV.visibility = View.GONE
+                mailET.setTextColor(Color.BLACK)
+                dataOk = true
+            }
         }
+
         return dataOk
     }
 
