@@ -37,6 +37,7 @@ class ModifyPet : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modify_pet)
         val pet = intent.getParcelableExtra<Mascota>("Mascota")
+
         deleteBTN = findViewById(R.id.DeletePetBTN)
         modifyBTN = findViewById(R.id.ModifyPetBTN)
         nameET = findViewById(R.id.NameET2)
@@ -44,7 +45,6 @@ class ModifyPet : AppCompatActivity() {
         weigthET = findViewById(R.id.WeightET2)
         genreSP = findViewById(R.id.GenreSP2)
         breedSP = findViewById(R.id.BreedSP2)
-
 
         val arrayBreed = resources.getStringArray(R.array.breeds_array)
         val adapterBreed = ArrayAdapter(this,android.R.layout.simple_spinner_item,arrayBreed)
@@ -94,7 +94,7 @@ class ModifyPet : AppCompatActivity() {
 
             val breed = resources.getStringArray(R.array.breeds_array)
             val indexBreed = breed.indexOf(it.raza)
-            if (indexBreed != -1) {
+            if (indexBreed != -1 || indexBreed > 0) {
                 breedSP.setSelection(indexBreed)
             }
 
@@ -106,14 +106,46 @@ class ModifyPet : AppCompatActivity() {
         }
 
         modifyBTN.setOnClickListener{
-            modifyPet(selectedBreed, selectedGenre, breedImgID)
+            if (selectedBreed.equals("Selecciona una Opción",true) && !selectedGenre.equals("Selecciona una Opción",true) ){
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Selecciona una raza", Toast.LENGTH_SHORT)
+                lastToast?.show()
+            }else if(selectedGenre.equals("Selecciona una Opción",true) && !selectedBreed.equals("Selecciona una Opción",true)){
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Selecciona un género", Toast.LENGTH_SHORT)
+                lastToast?.show()
+            } else if(selectedGenre.equals("Selecciona una Opción",true) && selectedBreed.equals("Selecciona una Opción",true) ){
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Selecciona una raza y un género", Toast.LENGTH_SHORT)
+                lastToast?.show()
+            }else if(!editTextFullfiled()){
+                lastToast?.cancel()
+                lastToast=Toast.makeText(this, "Cumplimente todos los campos ", Toast.LENGTH_SHORT)
+                lastToast?.show()
+            }else{
+                modifyPet(selectedBreed, selectedGenre, breedImgID)
+            }
         }
 
     }
 
 
+    fun editTextFullfiled():Boolean{
+        var fullfiled = false
+        if ((!nameET.text.isNullOrEmpty() || !nameET.text.isBlank())
+            && (!ageET.text.isNullOrEmpty() || !ageET.text.isBlank())
+            && (!weigthET.text.isNullOrEmpty() || !weigthET.text.isBlank())){
+            fullfiled = true
+        }else{
+            lastToast?.cancel()
+            lastToast=Toast.makeText(this, "Cumplimente todos los campos ", Toast.LENGTH_SHORT)
+            lastToast?.show()
+        }
+        return fullfiled
+    }
+
     private fun deletePet() {
-        var db = Firebase.firestore
+        val db = Firebase.firestore
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Alerta")

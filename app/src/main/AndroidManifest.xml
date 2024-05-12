@@ -23,9 +23,6 @@
             android:parentActivityName=".MainActivity"
             />
         <activity
-            android:name=".AdapterListView"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false"
             />
