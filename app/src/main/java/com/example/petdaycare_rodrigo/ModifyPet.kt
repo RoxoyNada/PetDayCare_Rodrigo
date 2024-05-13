@@ -174,13 +174,15 @@ class ModifyPet : AppCompatActivity() {
 
     fun editTextFullfiled():Boolean{
         var fullfiled = false
-        if ((!nameET.text.isNullOrEmpty() || !nameET.text.isBlank())
-            && (!ageET.text.isNullOrEmpty() || !ageET.text.isBlank())
-            && (!weigthET.text.isNullOrEmpty() || !weigthET.text.isBlank())){
+        val nameText = nameET.text.toString().trim()
+        if ((nameText.isNotEmpty() && !nameText.isBlank())
+            && (!ageET.text.isNullOrEmpty())
+            && (!weigthET.text.isNullOrEmpty())){
             fullfiled = true
-        }else{
+        }
+        else{
             lastToast?.cancel()
-            lastToast=Toast.makeText(this, "Cumplimente todos los campos ", Toast.LENGTH_SHORT)
+            lastToast=Toast.makeText(this, "Cumplimente todos los datos", Toast.LENGTH_SHORT)
             lastToast?.show()
         }
         return fullfiled

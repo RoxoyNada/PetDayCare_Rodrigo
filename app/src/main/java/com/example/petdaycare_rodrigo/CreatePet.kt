@@ -172,7 +172,7 @@ class CreatePet : AppCompatActivity() {
 
         val mascota = hashMapOf(
             "ImagenID" to breedImgID,
-            "Nombre" to name,
+            "Nombre" to name.trim(),
             "Edad" to age,
             "Raza" to breed,
             "Genero" to genre,
