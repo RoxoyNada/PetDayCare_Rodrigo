@@ -163,22 +163,39 @@
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
         android:padding="10dp">
-
+<RelativeLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="50"
+    android:background="@drawable/buttons_pet_data"
+    >
         <Button
             android:id="@+id/LoginBTN"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:backgroundTint="#00FFFFFF"
+            />
+</RelativeLayout>
+
+<RelativeLayout
+            android:layout_width="0dp"
             android:layout_weight="50"
-            android:text="Login" />
+            android:layout_height="match_parent"
+            android:background="@drawable/buttons_pet_data">
 
         <Button
             android:id="@+id/RegisterBTN"
-            android:layout_width="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
+            android:layout_centerInParent="true"
             android:text="Register"
+            android:textColor="@color/black"
+            android:backgroundTint="#00FFFFFF"
             />
+</RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>
