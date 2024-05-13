@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         val floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
         floatBTN.setOnClickListener{
-            val i = Intent(applicationContext, DataScreen::class.java)
+            val i = Intent(applicationContext, CreatePet::class.java)
             startActivity(i)
             petsArray.clear()
         }

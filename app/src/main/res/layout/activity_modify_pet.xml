@@ -2,140 +2,175 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/data_bg_gradient"
     android:scrollbarSize="10dp">
 
 
-    <TextView
-        android:id="@+id/NameTV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:text="Nombre"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/BreedTV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/WeightET2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="2dp"
-        android:text="Raza"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/GenreTV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/BreedTV2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:text="Género"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/ShowAgeTV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/NameET2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:text="Edad"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/WeigthTV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/AgeET2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:text="Peso"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/NameET2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:layout_toEndOf="@id/NameTV2"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
-        android:maxLength="25"
-        android:textColorHint="#4E4E4E" />
-
-    <EditText
-        android:id="@+id/AgeET2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/NameET2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:layout_toEndOf="@id/NameTV2"
-        android:ems="10"
-        android:hint="Edad"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textColorHint="#4E4E4E" />
-
-    <EditText
-        android:id="@+id/WeightET2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/AgeET2"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:layout_toEndOf="@id/NameTV2"
-        android:ems="10"
-        android:hint="Peso"
-        android:inputType="numberDecimal"
-        android:maxLength="4"
-        android:textColorHint="#4E4E4E" />
-
-    <Spinner
-        android:id="@+id/BreedSP2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/WeightET2"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="2dp"
-        android:layout_toEndOf="@id/BreedTV2"
-        android:scrollbarSize="15dp" />
-
-    <Spinner
-        android:id="@+id/GenreSP2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/BreedSP2"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@id/GenreTV2"
-        android:scrollbarSize="15dp" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/BreedIV"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:padding="5dp"
+        android:src="@drawable/default_pet_icon"
+        android:scaleType="centerCrop"
+        android:background="#7393D5"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp"
+        />
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/DataContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/GenreTV2"
+        android:layout_below="@id/BreedIV">
+
+        <TextView
+            android:id="@+id/NameTV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:padding="10dp"
+            android:text="Nombre"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/NameET2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toEndOf="@id/NameTV2"
+            android:ems="14"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:maxLength="30"
+            android:padding="10dp"
+            android:textColorHint="#4E4E4E" />
+
+        <TextView
+            android:id="@+id/ShowAgeTV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/NameTV2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:padding="10dp"
+            android:text="Edad"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/AgeET2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/NameTV2"
+            android:layout_alignStart="@id/NameET2"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toEndOf="@id/ShowAgeTV2"
+            android:ems="14"
+            android:hint="Edad"
+            android:inputType="number"
+            android:maxLength="2"
+            android:padding="10dp"
+            android:textColorHint="#4E4E4E" />
+
+        <TextView
+            android:id="@+id/WeightTV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ShowAgeTV2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:padding="10dp"
+            android:text="Peso"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/WeightET2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ShowAgeTV2"
+            android:layout_alignStart="@id/NameET2"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toEndOf="@id/WeightTV2"
+            android:ems="14"
+            android:hint="Peso"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:padding="10dp"
+            android:textColorHint="#4E4E4E" />
+
+        <TextView
+            android:id="@+id/BreedTV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/WeightTV2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:padding="10dp"
+            android:text="Raza"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/BreedSP2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/WeightTV2"
+            android:layout_alignStart="@id/WeightET2"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toEndOf="@id/BreedTV2"
+            android:padding="15dp"
+            android:scrollbarSize="15dp" />
+
+        <TextView
+            android:id="@+id/GenreTV2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/BreedTV2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:padding="10dp"
+            android:text="Género"
+            android:textSize="24sp"
+            android:textColor="#000000" />
+
+        <Spinner
+            android:id="@+id/GenreSP2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/BreedTV2"
+            android:layout_alignStart="@id/WeightET2"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toEndOf="@id/BreedTV2"
+            android:padding="15dp"
+            android:scrollbarSize="15dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/DataContainer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
@@ -143,18 +178,22 @@
 
         <Button
             android:id="@+id/DeletePetBTN"
-            android:layout_width="wrap_content"
+            android:layout_weight="50"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            android:text="Eliminar" />
+            android:text="Eliminar"
+            android:background="@drawable/buttons_pet_data"
+            />
 
         <Button
             android:id="@+id/ModifyPetBTN"
-            android:layout_width="wrap_content"
+            android:layout_weight="50"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -162,6 +201,6 @@
             android:layout_marginBottom="10dp"
             android:layout_toEndOf="@id/DeletePetBTN"
             android:text="Modificar" />
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

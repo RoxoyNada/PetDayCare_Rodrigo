@@ -18,7 +18,7 @@
             android:parentActivityName=".MainActivity"
             />
         <activity
-            android:name=".DataScreen"
+            android:name=".CreatePet"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             />

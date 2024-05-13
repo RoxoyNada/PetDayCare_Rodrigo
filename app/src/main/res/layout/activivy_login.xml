@@ -123,7 +123,7 @@
             android:background="@drawable/login_box_style"
             android:ems="10"
             android:hint="E-Mail"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:padding="12dp"
             android:textColor="#000000"
             android:textSize="20sp"
@@ -166,7 +166,7 @@
 
         <Button
             android:id="@+id/LoginBTN"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="50"
@@ -174,11 +174,11 @@
 
         <Button
             android:id="@+id/RegisterBTN"
-            android:layout_width="wrap_content"
+            android:layout_width="10dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_weight="50"
-            android:text="Register" />
+            android:text="Register"
+            />
     </LinearLayout>
 
 </RelativeLayout>

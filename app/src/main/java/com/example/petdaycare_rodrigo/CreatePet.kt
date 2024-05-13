@@ -14,7 +14,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
-class DataScreen : AppCompatActivity() {
+class CreatePet : AppCompatActivity() {
 
     lateinit var nameET : EditText
     lateinit var ageET : EditText
@@ -33,7 +33,7 @@ class DataScreen : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data_screen)
+        setContentView(R.layout.activity_create_pet_screen)
 
 
         val addPet = findViewById<Button>(R.id.addPetBTN)

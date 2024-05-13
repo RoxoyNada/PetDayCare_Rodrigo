@@ -100,67 +100,48 @@ class Login : AppCompatActivity() {
 
         mailET.setHintTextColor(Color.GRAY)
         passET.setHintTextColor(Color.GRAY)
-        if (isNullBlanckText(mail) && (!isNullBlanckText(pass))){
-            alertMailTV.visibility = View.VISIBLE
-            alertPassTV.visibility = View.GONE
-            mailET.setHintTextColor(Color.RED)
-        }else if ( !isNullBlanckText(mail) && (isNullBlanckText(pass))){
-            passET.setHintTextColor(Color.RED)
-            mailET.setHintTextColor(Color.GRAY)
+        if (isValidEmail(mail) && (!isValidPassword(pass))){
             alertMailTV.visibility = View.GONE
             alertPassTV.visibility = View.VISIBLE
-        }else if (isNullBlanckText(mail) && (isNullBlanckText(pass))){
+            mailET.setHintTextColor(Color.RED)
+            lastToast?.cancel()
+            lastToast=Toast.makeText(this, "Contraseña no válida, por favor introduzca una contraseña válida", Toast.LENGTH_LONG)
+            lastToast?.show()
+        }else if ( !isValidEmail(mail) && (isValidPassword(pass))){
+            passET.setHintTextColor(Color.RED)
+            mailET.setHintTextColor(Color.GRAY)
+            alertMailTV.visibility = View.VISIBLE
+            alertPassTV.visibility = View.GONE
+            lastToast?.cancel()
+            lastToast=Toast.makeText(this, "E-Mail no válido, por favor introduzca un E-mail válido", Toast.LENGTH_LONG)
+            lastToast?.show()
+        }else if (!isValidEmail(mail) && (!isValidPassword(pass))){
             alertMailTV.visibility = View.VISIBLE
             alertPassTV.visibility = View.VISIBLE
             mailET.setHintTextColor(Color.RED)
             passET.setHintTextColor(Color.RED)
+            lastToast?.cancel()
+            lastToast = Toast.makeText(
+                this,
+                "E-Mail y contraseña no válidos, por favor introduzca un E-mail y contraseña válidos",
+                Toast.LENGTH_LONG
+            )
+            lastToast?.show()
         }else{
             passET.setHintTextColor(Color.GRAY)
             mailET.setHintTextColor(Color.GRAY)
             alertMailTV.visibility = View.GONE
             alertPassTV.visibility = View.GONE
-
-            if (!isValidEmail(mail) && isValidPassword(pass)){
-                alertPassTV.visibility = View.GONE
-                alertMailTV.visibility = View.VISIBLE
-                mailET.setTextColor(Color.RED)
-                lastToast?.cancel()
-                lastToast=Toast.makeText(this, "E-Mail no válido, por favor introduzca un E-mail válido", Toast.LENGTH_LONG)
-                lastToast?.show()
-            }else if (!isValidPassword(pass) && isValidEmail(mail)){
-                alertPassTV.visibility = View.VISIBLE
-                alertMailTV.visibility = View.GONE
-                mailET.setTextColor(Color.BLACK)
-                lastToast?.cancel()
-                lastToast=Toast.makeText(this, "Contraseña no válida, por favor introduzca una contraseña válida", Toast.LENGTH_LONG)
-                lastToast?.show()
-            }else if (!isValidPassword(pass) && !isValidEmail(mail)) {
-                alertPassTV.visibility = View.VISIBLE
-                alertMailTV.visibility = View.VISIBLE
-                mailET.setTextColor(Color.BLACK)
-                lastToast?.cancel()
-                lastToast = Toast.makeText(
-                    this,
-                    "E-Mail y contraseña no válidos, por favor introduzca un E-mail y contraseña válidos",
-                    Toast.LENGTH_LONG
-                )
-                lastToast?.show()
-            }else{
-                alertPassTV.visibility = View.GONE
-                alertMailTV.visibility = View.GONE
-                mailET.setTextColor(Color.BLACK)
-                dataOk = true
-            }
+            dataOk = true
         }
 
         return dataOk
     }
 
     fun isValidEmail(mail: String): Boolean{
-        val mailRegex = Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})")
+        val mailRegex = Regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
         return mail.matches(mailRegex)
     }
-
 
     // (?=.*[a-z]): Contiene al menos una letra minúscula.
     //(?=.*[A-Z]): Contiene al menos una letra mayúscula.
