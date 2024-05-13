@@ -4,13 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF3E0"
-    tools:context=".MainActivity">
+    android:background="@drawable/main_bg"
+    tools:context=".MainActivity"
+    >
 
     <ListView
         android:id="@+id/PetsLV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:divider="@color/cardview_shadow_end_color"
+        android:dividerHeight="10dp"
+        android:padding="5dp">
 
     </ListView>
 
@@ -25,8 +32,8 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:clickable="true"
-        android:padding="3dp"
-        android:rotationX="-1"
+        android:cropToPadding="false"
+        android:rotationX="0"
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="#FF9100"
         app:borderWidth="5dp"
@@ -40,10 +47,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:elevation="1dp"
         android:padding="5dp"
+        android:shadowColor="#000000"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="8"
         android:text="No se ha registrado ninguna mascota"
         android:textAlignment="center"
-        android:textColor="#3A3A3A"
-        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         android:visibility="gone" />
 </RelativeLayout>

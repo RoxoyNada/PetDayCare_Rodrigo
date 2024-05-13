@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF7EA"
+    android:background="@drawable/data_bg_gradient"
     android:scrollbarSize="10dp">
 
 
@@ -15,6 +14,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="2dp"
         android:text="Nombre"
+        android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
@@ -26,6 +26,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="2dp"
         android:text="Raza"
+        android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
@@ -37,6 +38,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="2dp"
         android:text="Género"
+        android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
@@ -48,6 +50,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="2dp"
         android:text="Edad"
+        android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
@@ -59,6 +62,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="2dp"
         android:text="Peso"
+        android:textColor="#000000"
         android:textSize="20sp" />
 
     <EditText
@@ -71,7 +75,9 @@
         android:layout_toEndOf="@id/NameTV2"
         android:ems="10"
         android:hint="Nombre"
-        android:inputType="text" />
+        android:inputType="text"
+        android:maxLength="25"
+        android:textColorHint="#4E4E4E" />
 
     <EditText
         android:id="@+id/AgeET2"
@@ -84,7 +90,9 @@
         android:layout_toEndOf="@id/NameTV2"
         android:ems="10"
         android:hint="Edad"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="2"
+        android:textColorHint="#4E4E4E" />
 
     <EditText
         android:id="@+id/WeightET2"
@@ -97,7 +105,9 @@
         android:layout_toEndOf="@id/NameTV2"
         android:ems="10"
         android:hint="Peso"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:maxLength="4"
+        android:textColorHint="#4E4E4E" />
 
     <Spinner
         android:id="@+id/BreedSP2"

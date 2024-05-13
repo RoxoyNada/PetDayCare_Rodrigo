@@ -7,31 +7,50 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 
 class MainActivity : AppCompatActivity() {
     var petsArray = arrayListOf<Mascota>()
+    lateinit var listItem: ListView
 
-    override fun onResume() {
-        super.onResume()
-        getPetCollection()
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
+        getPetCollection()
+        listItem = findViewById(R.id.PetsLV)
+
+        listItem.setOnItemClickListener{ parent, view, position, id ->
+
+            val selectedPet = parent.getItemAtPosition(position) as Mascota
+
+            val i = Intent(this, ModifyPet::class.java)
+
+            i.putExtra("Mascota", selectedPet)
+
+            startActivity(i)
+        }
+
+
+        val floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
         floatBTN.setOnClickListener{
             val i = Intent(applicationContext, DataScreen::class.java)
             startActivity(i)
             petsArray.clear()
         }
+
     }
 
     fun getPetCollection(){
@@ -92,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                 listPetsView.emptyView = emptyTV
 
 
-                var petList = AdapterMascotas(applicationContext, R.layout.activity_adapter_list_view, petsArray)
+                val petList = AdapterMascotas(applicationContext, R.layout.activity_adapter_list_view, petsArray)
                 listPetsView.adapter = petList
             }
             .addOnFailureListener { exception ->
@@ -112,6 +131,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logOut -> {
+                Firebase.auth.signOut()
                 val i = Intent(applicationContext,Login::class.java)
                 startActivity(i)
             }
@@ -119,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                 composeEmail("rfernandez@centronelson.org")
             }
             R.id.aboutMe -> {
-                openWebPage("https://www.linkedin.com/in/rodrigo-fernandez-alonso/")
+                openWebPage("https://www.linkedin.com/in/rodrigo-fernandez-alonso-52b45b293/")
             }
         }
         return super.onOptionsItemSelected(item)
