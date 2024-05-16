@@ -128,6 +128,9 @@ class ModifyPet : AppCompatActivity() {
                 lastToast=Toast.makeText(this, "Cumplimente todos los campos ", Toast.LENGTH_SHORT)
                 lastToast?.show()
             }else{
+                if(weigthET.text.toString()=="."){
+                    weigthET.setText("0")
+                }
                 modifyPet(selectedBreed, selectedGenre, breedImgID)
             }
         }

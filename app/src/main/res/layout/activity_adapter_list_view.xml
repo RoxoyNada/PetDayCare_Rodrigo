@@ -10,18 +10,34 @@
     android:layout_marginBottom="5dp"
     android:background="@drawable/rounded_corners_list_items">
 
-    <TextView
-        android:id="@+id/ShowNameTV2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/PetIconIV"
-        android:padding="5dp"
-        android:text="Nombre: "
-        android:textColor="#000000"
-        android:textSize="18sp" />
+<!--    <TextView-->
+<!--        android:id="@+id/ShowNameTV2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="7dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="7dp"-->
+<!--        android:layout_toEndOf="@id/PetIconIV"-->
+<!--        android:padding="5dp"-->
+<!--        android:text="Nombre: "-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="18sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/GetNameTV2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="7dp"-->
+<!--        android:layout_marginBottom="7dp"-->
+<!--        android:layout_toEndOf="@id/ShowNameTV2"-->
+<!--        android:ellipsize="end"-->
+<!--        android:hint="Insert Name"-->
+<!--        android:maxLines="1"-->
+<!--        android:padding="5dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:textColor="#0E0E0E"-->
+<!--        android:textSize="18sp" />-->
 
     <TextView
         android:id="@+id/GetNameTV2"
@@ -30,7 +46,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/ShowNameTV2"
+        android:layout_toEndOf="@id/PetIconIV"
         android:ellipsize="end"
         android:hint="Insert Name"
         android:maxLines="1"
@@ -47,7 +63,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/ShowBreedTV"
+        android:layout_toEndOf="@id/PetIconIV"
         android:ellipsize="end"
         android:hint="Insert Breed"
         android:maxLines="1"
@@ -55,20 +71,37 @@
         android:singleLine="true"
         android:textColor="#0E0E0E"
         android:textSize="18sp" />
+<!--    <TextView-->
+<!--        android:id="@+id/GetBreedTV2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/GetNameTV2"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="7dp"-->
+<!--        android:layout_marginBottom="7dp"-->
+<!--        android:layout_toEndOf="@id/ShowBreedTV"-->
+<!--        android:ellipsize="end"-->
+<!--        android:hint="Insert Breed"-->
+<!--        android:maxLines="1"-->
+<!--        android:padding="5dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:textColor="#0E0E0E"-->
+<!--        android:textSize="18sp" />-->
 
-    <TextView
-        android:id="@+id/ShowBreedTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ShowNameTV2"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="7dp"
-        android:layout_toEndOf="@id/PetIconIV"
-        android:padding="5dp"
-        android:text="Raza: "
-        android:textColor="#000000"
-        android:textSize="18sp" />
+<!--    <TextView-->
+<!--        android:id="@+id/ShowBreedTV"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/ShowNameTV2"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginBottom="7dp"-->
+<!--        android:layout_toEndOf="@id/PetIconIV"-->
+<!--        android:padding="5dp"-->
+<!--        android:text="Raza: "-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="18sp" />-->
+
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/PetIconIV"
@@ -89,6 +122,40 @@
         app:strokeColor="#000000"
         app:strokeWidth="3dp"
     />
+
+    <RelativeLayout
+        android:id="@+id/ContainerRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/weigthIcon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/weigth" />
+
+        <TextView
+            android:id="@+id/weigthTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="17dp"
+            android:hint="Insert Kg"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#A6A6A6"
+            android:textSize="15sp" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

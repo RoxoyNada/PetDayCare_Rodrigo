@@ -11,9 +11,9 @@
         android:id="@+id/bg_dogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/main_bg"
+        android:alpha="0.80"
         android:scaleType="centerCrop"
-        />
+        android:src="@drawable/main_bg" />
 
     <ListView
         android:id="@+id/PetsLV"
@@ -24,7 +24,8 @@
         android:layout_marginEnd="5dp"
         android:divider="@color/cardview_shadow_end_color"
         android:dividerHeight="10dp"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:visibility="gone">
 
     </ListView>
 
@@ -49,20 +50,26 @@
         app:maxImageSize="40dp"
         app:useCompatPadding="false" />
 
-    <TextView
-        android:id="@+id/EmptyViewTV"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="1dp"
-        android:padding="5dp"
-        android:shadowColor="#000000"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="8"
-        android:text="No se ha registrado ninguna mascota"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:visibility="gone" />
+        android:layout_centerInParent="false">
+
+        <TextView
+            android:id="@+id/EmptyViewTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:padding="5dp"
+            android:shadowColor="#000000"
+            android:shadowDx="6"
+            android:shadowDy="5"
+            android:shadowRadius="2"
+            android:text="No se ha registrado \n ninguna mascota"
+            android:textAlignment="center"
+            android:textColor="#FFF3DF"
+            android:textSize="30sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
 </RelativeLayout>
