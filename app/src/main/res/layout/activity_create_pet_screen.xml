@@ -15,28 +15,29 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:padding="5dp"
-        android:src="@drawable/default_pet_icon"
-        android:scaleType="centerCrop"
-        app:shapeAppearanceOverlay="@style/circular"
         android:background="#7393D5"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_pet_icon"
+        app:shapeAppearanceOverlay="@style/circular"
         app:strokeColor="#000000"
-        app:strokeWidth="3dp"
-        />
+        app:strokeWidth="3dp" />
 
     <RelativeLayout
         android:id="@+id/DataContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/DogImage">
+        android:layout_below="@id/DogImage"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/data_simulated_card">
 
         <TextView
             android:id="@+id/NameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="2dp"
             android:padding="10dp"
             android:text="Nombre"
@@ -49,22 +50,24 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
             android:layout_toEndOf="@id/NameTV"
             android:ems="14"
             android:hint="Nombre"
             android:inputType="text"
             android:maxLength="30"
             android:padding="10dp"
-            android:textColorHint="#4E4E4E" />
+            android:textColor="#000000"
+            android:textColorHint="#4E4E4E"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/ShowAgeTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/NameTV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
             android:padding="10dp"
@@ -79,21 +82,23 @@
             android:layout_below="@id/NameTV"
             android:layout_alignStart="@id/NameET"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginEnd="15dp"
             android:layout_toEndOf="@id/ShowAgeTV"
             android:ems="14"
             android:hint="Edad"
             android:inputType="number"
             android:maxLength="2"
             android:padding="10dp"
-            android:textColorHint="#4E4E4E" />
+            android:textColor="#000000"
+            android:textColorHint="#4E4E4E"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/WeigthTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ShowAgeTV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
             android:padding="10dp"
@@ -108,21 +113,24 @@
             android:layout_below="@id/ShowAgeTV"
             android:layout_alignStart="@id/NameET"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginEnd="15dp"
             android:layout_toEndOf="@id/WeigthTV"
             android:ems="14"
             android:hint="Peso"
             android:inputType="numberDecimal"
             android:maxLength="4"
             android:padding="10dp"
-            android:textColorHint="#4E4E4E" />
+            android:textColor="#000000"
+            android:textColorHint="#4E4E4E"
+            android:textSize="20sp"
+            />
 
         <TextView
             android:id="@+id/BreedTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/WeigthTV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
             android:padding="10dp"
@@ -136,10 +144,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/WeigthTV"
             android:layout_alignStart="@id/WeightET"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginEnd="15dp"
             android:layout_toEndOf="@id/BreedTV"
-            android:padding="15dp"
+            android:padding="10dp"
             android:scrollbarSize="15dp" />
 
         <TextView
@@ -147,13 +156,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/BreedTV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
             android:padding="10dp"
             android:text="Género"
-            android:textSize="24sp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/GenreSP"
@@ -161,24 +170,26 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/BreedTV"
             android:layout_alignStart="@id/WeightET"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginEnd="15dp"
             android:layout_toEndOf="@id/GeneroTV"
-            android:padding="15dp"
+            android:padding="10dp"
             android:scrollbarSize="15dp" />
+
+        <Button
+            android:id="@+id/addPetBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/GenreSP"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:paddingHorizontal="50dp"
+            android:text="Añadir" />
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/addPetBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/DataContainer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:padding="10dp"
-        android:text="Añadir" />
 
 </RelativeLayout>

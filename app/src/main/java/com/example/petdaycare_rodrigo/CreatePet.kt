@@ -14,7 +14,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
-class DataScreen : AppCompatActivity() {
+class CreatePet : AppCompatActivity() {
 
     lateinit var nameET : EditText
     lateinit var ageET : EditText
@@ -33,7 +33,7 @@ class DataScreen : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data_screen)
+        setContentView(R.layout.activity_create_pet_screen)
 
 
         val addPet = findViewById<Button>(R.id.addPetBTN)
@@ -117,36 +117,35 @@ class DataScreen : AppCompatActivity() {
         addPet.setOnClickListener{
 
             if(editTextFullfiled()) {
+                if(weigthET.text.toString()=="."){
+                    weigthET.setText("0")
+                }
                     val nameSTR = nameET.text.toString()
                     val ageINT = ageET.text.toString().toInt()
                     val weightDouble = weigthET.text.toString().toDouble()
-
                     if(checkFields(ageINT,weightDouble,selectedGenre)){
                         createPet(nameSTR,ageINT,selectedBreed,selectedGenre,weightDouble)
                     }else{
-                        lastToast?.cancel()
-                        lastToast=Toast.makeText(this, "Por favor seleccione raza y género", Toast.LENGTH_SHORT)
-                        lastToast?.show()
+                        if (weigthET.text.toString().toDouble()>=100){
+                            lastToast?.cancel()
+                            lastToast=Toast.makeText(this, "Peso máximo 99.9Kg ", Toast.LENGTH_SHORT)
+                            lastToast?.show()
+                        }else{
+                            lastToast?.cancel()
+                            lastToast=Toast.makeText(this, "Por favor seleccione raza y género", Toast.LENGTH_SHORT)
+                            lastToast?.show()
+                        }
                     }
             }
         }
-
     }
 
     fun checkFields(age:Int, weight:Double, genre:String): Boolean{
         var dataOk = false
 
-        if((age > 0) && (weight > 0) && breedImgID > 0
+        if((age > 0) && (weight > 0 && weight < 100) && breedImgID > 0
             && (!genre.equals("Selecciona una Opción",true))){
             dataOk = true
-        }else{
-
-            if(genre.equals("Selecciona una Opción",true)){
-                dataOk = false
-            }
-            if (breedImgID == 0){
-                dataOk = false
-            }
         }
         return dataOk
     }
@@ -172,7 +171,7 @@ class DataScreen : AppCompatActivity() {
 
         val mascota = hashMapOf(
             "ImagenID" to breedImgID,
-            "Nombre" to name,
+            "Nombre" to name.trim(),
             "Edad" to age,
             "Raza" to breed,
             "Genero" to genre,

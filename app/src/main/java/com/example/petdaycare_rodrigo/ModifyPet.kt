@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
@@ -26,6 +27,7 @@ class ModifyPet : AppCompatActivity() {
     lateinit var genreSP : Spinner
     lateinit var selectedBreed : String
     lateinit var selectedGenre : String
+    lateinit var breedImg: ShapeableImageView
     var breedImgID = 0
     private var lastToast: Toast? = null
 
@@ -45,6 +47,7 @@ class ModifyPet : AppCompatActivity() {
         weigthET = findViewById(R.id.WeightET2)
         genreSP = findViewById(R.id.GenreSP2)
         breedSP = findViewById(R.id.BreedSP2)
+        breedImg = findViewById(R.id.BreedIV)
 
         val arrayBreed = resources.getStringArray(R.array.breeds_array)
         val adapterBreed = ArrayAdapter(this,android.R.layout.simple_spinner_item,arrayBreed)
@@ -56,6 +59,7 @@ class ModifyPet : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 selectedBreed = arrayBreed[pos]
                 breedImgID = pos
+                drawPet(pos)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -96,6 +100,7 @@ class ModifyPet : AppCompatActivity() {
             val indexBreed = breed.indexOf(it.raza)
             if (indexBreed != -1 || indexBreed > 0) {
                 breedSP.setSelection(indexBreed)
+                drawPet(indexBreed)
             }
 
         }
@@ -123,22 +128,64 @@ class ModifyPet : AppCompatActivity() {
                 lastToast=Toast.makeText(this, "Cumplimente todos los campos ", Toast.LENGTH_SHORT)
                 lastToast?.show()
             }else{
+                if(weigthET.text.toString()=="."){
+                    weigthET.setText("0")
+                }
                 modifyPet(selectedBreed, selectedGenre, breedImgID)
             }
         }
 
     }
+    fun drawPet(pos:Int){
+        val drawableId = when (pos) {
+            1 -> R.drawable.beagle
+            2 -> R.drawable.bedlington
+            3 -> R.drawable.bichon
+            4 -> R.drawable.bodeguero
+            5 -> R.drawable.border
+            6 -> R.drawable.borzoi
+            7 -> R.drawable.bull_frances
+            8 -> R.drawable.bull_ingles
+            9 -> R.drawable.chihuahua
+            10 -> R.drawable.chow
+            11 -> R.drawable.corgi
+            12 -> R.drawable.galgo
+            13 -> R.drawable.golden
+            14 -> R.drawable.danes
+            15 -> R.drawable.husky
+            16 -> R.drawable.mastin
+            17 -> R.drawable.cane_corso
+            18 -> R.drawable.aleman
+            19 -> R.drawable.aguas
+            20 -> R.drawable.salchicha
+            21 -> R.drawable.pinscher
+            22 -> R.drawable.pitbull
+            23 -> R.drawable.pomeranian
+            24 -> R.drawable.rotweiller
+            25 -> R.drawable.sabueso_espannol
+            26 -> R.drawable.san_bernardo
+            27 -> R.drawable.shiba
+            28 -> R.drawable.west_terrier
+            29 -> R.drawable.yorkshire
+            30 -> R.drawable.default_pet_icon
+            0 -> R.drawable.default_pet_icon
+            else -> throw IllegalArgumentException("Número fuera de rango")
+        }
+        breedImg.setImageResource(drawableId)
 
+    }
 
     fun editTextFullfiled():Boolean{
         var fullfiled = false
-        if ((!nameET.text.isNullOrEmpty() || !nameET.text.isBlank())
-            && (!ageET.text.isNullOrEmpty() || !ageET.text.isBlank())
-            && (!weigthET.text.isNullOrEmpty() || !weigthET.text.isBlank())){
+        val nameText = nameET.text.toString().trim()
+        if ((nameText.isNotEmpty() && !nameText.isBlank())
+            && (!ageET.text.isNullOrEmpty())
+            && (!weigthET.text.isNullOrEmpty())){
             fullfiled = true
-        }else{
+        }
+        else{
             lastToast?.cancel()
-            lastToast=Toast.makeText(this, "Cumplimente todos los campos ", Toast.LENGTH_SHORT)
+            lastToast=Toast.makeText(this, "Cumplimente todos los datos", Toast.LENGTH_SHORT)
             lastToast?.show()
         }
         return fullfiled
