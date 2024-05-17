@@ -8,7 +8,7 @@
     >
 
     <ImageView
-        android:id="@+id/bg_dogs"
+        android:id="@+id/BgDogsIV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.90"
@@ -30,7 +30,7 @@
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/AddPetBTN"
+        android:id="@+id/AddPetFBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -75,7 +75,7 @@
             android:visibility="visible" />
 
         <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/animationGIF"
+            android:id="@+id/AnimationGIF"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"

@@ -37,7 +37,7 @@ class CreatePet : AppCompatActivity() {
         setContentView(R.layout.activity_create_pet_screen)
 
 
-        val addPet = findViewById<Button>(R.id.addPetBTN)
+        val addPet = findViewById<Button>(R.id.AddPetBTN)
         nameET = findViewById(R.id.NameET)
         ageET = findViewById(R.id.AgeET)
         weigthET = findViewById(R.id.WeightET)

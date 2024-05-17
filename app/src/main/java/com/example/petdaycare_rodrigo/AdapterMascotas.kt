@@ -3,7 +3,6 @@ package com.example.petdaycare_rodrigo
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
-import android.graphics.ColorSpace.Rgb
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,7 @@ class AdapterMascotas(context: Context, viewToPaint: Int, private val mascotas: 
         val iconoIv = currentListItem.findViewById<ImageView>(R.id.PetIconIV)
         val nombreMascotaTV = currentListItem.findViewById<TextView>(R.id.GetNameTV2)
         val razaMascotaTV = currentListItem.findViewById<TextView>(R.id.GetBreedTV2)
-        val weight = currentListItem.findViewById<TextView>(R.id.WeightTV2)
+        val weight = currentListItem.findViewById<TextView>(R.id.WeightTVMod)
         val weightStr = mascotas.get(position).peso.toString()
 
         iconoIv.setImageResource(mascotas.get(position).imagen)

@@ -136,7 +136,7 @@
         android:layout_marginEnd="10dp">
 
         <ImageView
-            android:id="@+id/weigthIcon"
+            android:id="@+id/WeigthIcon"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_centerInParent="true"
@@ -146,7 +146,7 @@
             android:src="@drawable/weigth" />
 
         <TextView
-            android:id="@+id/WeightTV2"
+            android:id="@+id/WeightTVMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"

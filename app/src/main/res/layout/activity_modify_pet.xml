@@ -32,7 +32,7 @@
         android:background="@drawable/data_simulated_card">
 
         <TextView
-            android:id="@+id/NameTV2"
+            android:id="@+id/NameTVMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -53,7 +53,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="15dp"
-            android:layout_toEndOf="@id/NameTV2"
+            android:layout_toEndOf="@id/NameTVMod"
             android:ems="14"
             android:hint="Nombre"
             android:inputType="text"
@@ -64,10 +64,10 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/ShowAgeTV2"
+            android:id="@+id/AgeTVMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/NameTV2"
+            android:layout_below="@id/NameTVMod"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
@@ -78,14 +78,14 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/AgeET2"
+            android:id="@+id/AgeETMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/NameTV2"
+            android:layout_below="@id/NameTVMod"
             android:layout_alignStart="@id/NameET2"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
-            android:layout_toEndOf="@id/ShowAgeTV2"
+            android:layout_toEndOf="@id/AgeTVMod"
             android:ems="14"
             android:hint="Edad"
             android:inputType="number"
@@ -96,10 +96,10 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/WeightTV2"
+            android:id="@+id/WeightTVMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ShowAgeTV2"
+            android:layout_below="@id/AgeTVMod"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
@@ -110,14 +110,14 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/WeightET2"
+            android:id="@+id/WeightETMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ShowAgeTV2"
+            android:layout_below="@id/AgeTVMod"
             android:layout_alignStart="@id/NameET2"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
-            android:layout_toEndOf="@id/WeightTV2"
+            android:layout_toEndOf="@id/WeightTVMod"
             android:ems="14"
             android:hint="Peso"
             android:inputType="numberDecimal"
@@ -128,10 +128,10 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/BreedTV2"
+            android:id="@+id/BreedTVMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/WeightTV2"
+            android:layout_below="@id/WeightTVMod"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
@@ -142,23 +142,23 @@
             android:textSize="24sp" />
 
         <Spinner
-            android:id="@+id/BreedSP2"
+            android:id="@+id/BreedSPMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/WeightTV2"
-            android:layout_alignStart="@id/WeightET2"
+            android:layout_below="@id/WeightTVMod"
+            android:layout_alignStart="@id/WeightETMod"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
-            android:layout_toEndOf="@id/BreedTV2"
+            android:layout_toEndOf="@id/BreedTVMod"
             android:padding="10dp"
             android:scrollbarSize="15dp" />
 
         <TextView
-            android:id="@+id/GenreTV2"
+            android:id="@+id/GenreTVMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/BreedTV2"
+            android:layout_below="@id/BreedTVMod"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
@@ -169,22 +169,23 @@
             android:textSize="24sp" />
 
         <Spinner
-            android:id="@+id/GenreSP2"
+            android:id="@+id/GenreSPMod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/BreedTV2"
-            android:layout_alignStart="@id/WeightET2"
+            android:layout_below="@id/BreedTVMod"
+            android:layout_alignStart="@id/WeightETMod"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
-            android:layout_toEndOf="@id/BreedTV2"
+            android:layout_toEndOf="@id/BreedTVMod"
             android:padding="10dp"
             android:scrollbarSize="15dp" />
 
         <LinearLayout
+            android:id="@+id/ButtonsLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/GenreSP2"
+            android:layout_below="@id/GenreSPMod"
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"

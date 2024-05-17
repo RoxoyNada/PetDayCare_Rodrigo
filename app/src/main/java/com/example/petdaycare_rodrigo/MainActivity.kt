@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val floatBTN = findViewById<FloatingActionButton>(R.id.AddPetBTN)
+        val floatBTN = findViewById<FloatingActionButton>(R.id.AddPetFBTN)
         floatBTN.setOnClickListener{
             val i = Intent(applicationContext, CreatePet::class.java)
             startActivity(i)
