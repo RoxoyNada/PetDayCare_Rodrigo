@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="#7393D5"
+        android:background="#ADC6FB"
         android:padding="5dp"
         android:scaleType="centerCrop"
         android:src="@drawable/default_pet_icon"
@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/DogImage"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/data_simulated_card">
 
         <TextView
@@ -39,6 +40,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="2dp"
+            android:fontFamily="@font/saintpeter"
             android:padding="10dp"
             android:text="Nombre"
             android:textColor="#000000"
@@ -54,6 +56,7 @@
             android:layout_marginEnd="15dp"
             android:layout_toEndOf="@id/NameTV"
             android:ems="14"
+            android:fontFamily="sans-serif"
             android:hint="Nombre"
             android:inputType="text"
             android:maxLength="30"
@@ -70,6 +73,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
+            android:fontFamily="@font/saintpeter"
             android:padding="10dp"
             android:text="Edad"
             android:textColor="#000000"
@@ -101,6 +105,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
+            android:fontFamily="@font/saintpeter"
             android:padding="10dp"
             android:text="Peso"
             android:textColor="#000000"
@@ -122,8 +127,7 @@
             android:padding="10dp"
             android:textColor="#000000"
             android:textColorHint="#4E4E4E"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/BreedTV"
@@ -133,6 +137,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
+            android:fontFamily="@font/saintpeter"
             android:padding="10dp"
             android:text="Raza"
             android:textColor="#000000"
@@ -159,6 +164,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
+            android:fontFamily="@font/saintpeter"
             android:padding="10dp"
             android:text="Género"
             android:textColor="#000000"

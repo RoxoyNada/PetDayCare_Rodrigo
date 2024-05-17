@@ -14,20 +14,24 @@
         tools:targetApi="31">
         <activity
             android:name=".ModifyPet"
+            android:label="Modificar Datos"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             />
         <activity
             android:name=".CreatePet"
             android:exported="false"
+            android:label="Agregar Mascota"
             android:parentActivityName=".MainActivity"
             />
         <activity
             android:name=".MainActivity"
+            android:label="Listado"
             android:exported="false"
             />
         <activity
             android:name=".Login"
+            android:label="Pet DayCare"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
