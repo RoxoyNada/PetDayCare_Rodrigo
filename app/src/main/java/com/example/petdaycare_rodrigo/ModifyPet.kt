@@ -3,6 +3,7 @@ package com.example.petdaycare_rodrigo
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -27,7 +28,7 @@ class ModifyPet : AppCompatActivity() {
     lateinit var genreSP : Spinner
     lateinit var selectedBreed : String
     lateinit var selectedGenre : String
-    lateinit var breedImg: ShapeableImageView
+    lateinit var dogImage: ShapeableImageView
     var breedImgID = 0
     private var lastToast: Toast? = null
 
@@ -47,7 +48,7 @@ class ModifyPet : AppCompatActivity() {
         weigthET = findViewById(R.id.WeightET2)
         genreSP = findViewById(R.id.GenreSP2)
         breedSP = findViewById(R.id.BreedSP2)
-        breedImg = findViewById(R.id.BreedIV)
+        dogImage = findViewById(R.id.BreedIV)
 
         val arrayBreed = resources.getStringArray(R.array.breeds_array)
         val adapterBreed = ArrayAdapter(this,android.R.layout.simple_spinner_item,arrayBreed)
@@ -75,6 +76,11 @@ class ModifyPet : AppCompatActivity() {
         genreSP.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 selectedGenre = arrayGenre[pos]
+                if(selectedGenre =="Hembra"){
+                    dogImage.setBackgroundColor(Color.rgb(250,200,230))
+                }else{
+                    dogImage.setBackgroundColor(Color.rgb(173,198,255))
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -171,12 +177,15 @@ class ModifyPet : AppCompatActivity() {
             0 -> R.drawable.default_pet_icon
             else -> throw IllegalArgumentException("Número fuera de rango")
         }
-        breedImg.setImageResource(drawableId)
+        dogImage.setImageResource(drawableId)
 
     }
 
     fun editTextFullfiled():Boolean{
         var fullfiled = false
+        if(weigthET.text.toString() == "."){
+            weigthET.setText("0")
+        }
         val nameText = nameET.text.toString().trim()
         if ((nameText.isNotEmpty() && !nameText.isBlank())
             && (!ageET.text.isNullOrEmpty())

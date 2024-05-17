@@ -10,21 +10,68 @@
         android:id="@+id/BackgroundIV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.9"
         android:scaleType="centerCrop"
         android:src="@drawable/loginbg" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/IconIV"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="#000000"
+        android:layout_marginBottom="15dp"
         android:contentDescription="app icon"
-        app:srcCompat="@drawable/app_icon" />
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:srcCompat="@drawable/app_icon"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:id="@+id/PetDayTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/LoginRL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/saintpeter"
+        android:gravity="center"
+        android:letterSpacing="0.1"
+        android:padding="5dp"
+        android:shadowColor="#000000"
+        android:shadowDx="10"
+        android:shadowDy="3"
+        android:shadowRadius="1"
+        android:text="Pet Daycare"
+        android:textAlignment="center"
+        android:textColor="#CA3F09"
+        android:textSize="60sp"
+        />
+
+    <TextView
+        android:id="@+id/petDayHighLightTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/LoginRL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/saintpeter"
+        android:gravity="center"
+        android:letterSpacing="0.1"
+        android:padding="5dp"
+        android:shadowColor="#FFD1BC"
+        android:shadowDx="-5"
+        android:shadowDy="-4"
+        android:shadowRadius="1"
+        android:text="Pet Daycare"
+        android:textAlignment="center"
+        android:textColor="#F36934"
+        android:textSize="60sp"
+        />
 
     <RelativeLayout
         android:id="@+id/LoginRL"
@@ -36,19 +83,36 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/WelcomeHighLightTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/saintpeter"
+            android:letterSpacing="0.05"
             android:padding="4dp"
-            android:shadowColor="#000000"
-            android:shadowDx="5"
-            android:shadowDy="5"
-            android:shadowRadius="4"
+            android:shadowColor="#CEE1FF"
+            android:shadowDx="-4"
+            android:shadowDy="-1"
+            android:shadowRadius="5"
             android:text="Bienvenido "
-            android:textColor="#EF8C24"
-            android:textSize="28sp"
-            android:textStyle="bold|italic" />
+            android:textColor="#0E88F4"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/WelcomeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/saintpeter"
+            android:letterSpacing="0.05"
+            android:padding="4dp"
+            android:shadowColor="#001D75"
+            android:shadowDx="8"
+            android:shadowDy="-1"
+            android:shadowRadius="2"
+            android:text="Bienvenido "
+            android:textColor="#507CFF"
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/UserAlertTV"
@@ -85,7 +149,7 @@
             android:id="@+id/UserET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView"
+            android:layout_below="@id/WelcomeTV"
             android:layout_alignParentEnd="false"
             android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"

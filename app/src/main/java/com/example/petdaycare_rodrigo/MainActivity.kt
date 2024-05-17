@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -105,9 +106,9 @@ class MainActivity : AppCompatActivity() {
                     petsArray.add(currentPet)
                 }
 
-                val emptyTV = findViewById<TextView>(R.id.EmptyViewTV)
+                val emptyRL= findViewById<RelativeLayout>(R.id.EmptyViewRL)
                 val listPetsView = findViewById<ListView>(R.id.PetsLV)
-                listPetsView.emptyView = emptyTV
+                listPetsView.emptyView = emptyRL
 
 
                 val petList = AdapterMascotas(applicationContext, R.layout.activity_adapter_list_view, petsArray)

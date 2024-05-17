@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.petdaycare_rodrigo"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -49,5 +49,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.28")
 
 }

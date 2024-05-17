@@ -1,6 +1,7 @@
 package com.example.petdaycare_rodrigo
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -106,13 +107,17 @@ class CreatePet : AppCompatActivity() {
         genreSP.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 selectedGenre = arrayGenre[pos]
+                if(selectedGenre =="Hembra"){
+                    dogImage.setBackgroundColor(Color.rgb(250,200,230))
+                }else{
+                    dogImage.setBackgroundColor(Color.rgb(173,198,255))
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
+
         }
-
-
 
         addPet.setOnClickListener{
 
@@ -125,6 +130,7 @@ class CreatePet : AppCompatActivity() {
                     val weightDouble = weigthET.text.toString().toDouble()
                     if(checkFields(ageINT,weightDouble,selectedGenre)){
                         createPet(nameSTR,ageINT,selectedBreed,selectedGenre,weightDouble)
+
                     }else{
                         if (weigthET.text.toString().toDouble()>=100){
                             lastToast?.cancel()
@@ -140,10 +146,15 @@ class CreatePet : AppCompatActivity() {
         }
     }
 
+    fun resetEditTexts(){
+        nameET.setText("")
+        weigthET.setText("")
+        ageET.setText("")
+    }
     fun checkFields(age:Int, weight:Double, genre:String): Boolean{
         var dataOk = false
 
-        if((age > 0) && (weight > 0 && weight < 100) && breedImgID > 0
+        if((age >= 0) && (weight >= 0 && weight < 100) && breedImgID > 0
             && (!genre.equals("Selecciona una Opción",true))){
             dataOk = true
         }
@@ -185,6 +196,7 @@ class CreatePet : AppCompatActivity() {
                 lastToast?.cancel()
                 lastToast=Toast.makeText(this, "Mascota creada con éxito ", Toast.LENGTH_SHORT)
                 lastToast?.show()
+                resetEditTexts()
             }
             .addOnFailureListener { e ->
                 lastToast?.cancel()
